@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
   resources :entries do
     member do
       put :toggle_completed
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
  
 
   # get 'welcome/index'
-  root 'entries#index'
+  root to: 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
