@@ -10,6 +10,19 @@
 
 <div class="container">
 
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav navbar-right">
+				<% if user_signed_in?  %>
+					<li><a href="#">Edit Profile</a></li>
+					<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+				<% else %>
+					<li><a href="#">Sign In</a></li>
+				<% end %>
+			</ul>
+		</div>
+	</nav>
+
 	<!-- Flash alerts for DEVISE authentication -->
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>

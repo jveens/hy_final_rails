@@ -20,14 +20,19 @@ class EntriesController < ApplicationController
 	end
 
 	def create	
-		@entry = Entry.new(entry_params)
+		# @entry = Entry.new(entry_params)
+		@entry = current_user.entries.build(entry_params)
 		@entry.target_date = @entry.target_date || Date.today
 		
 		if @entry.todo != ''
-			@entry.save
+			if @entry.save
+				redirect_to :action => 'index'
+			else 
+				render :new
+			end
 		end
 		# render action: "index"
-		redirect_to :action => 'index'
+		
 	end
 
 	def destroy

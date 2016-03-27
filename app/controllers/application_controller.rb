@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
 
   # Ensure that users can't browser without being logged in
   before_action :authenticate_user!
+  # before_action :authenticate_user, except: [:index, :show]
 end
