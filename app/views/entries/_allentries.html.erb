@@ -1,0 +1,14 @@
+<ul>
+<% @entries.each do |entry| %>
+	<li class="<%= 'complete' if entry.completed %>">
+		<%= entry.todo %>
+		<!--<%= entry.id %> -->
+		<!--<%= entry.completed %> -->
+		<!--<%= entry.target_date %> -->
+		<%= link_to 'Complete', toggle_completed_entry_path(entry), :method => :put %>
+		<%= link_to 'Edit', edit_entry_path( entry ) %>
+		<%= link_to 'Delete', entry, method: :delete %>
+
+	</li>
+<% end -%>
+</ul>

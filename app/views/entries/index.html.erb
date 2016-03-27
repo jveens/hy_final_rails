@@ -1,0 +1,26 @@
+
+<div class="row">
+
+	<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+
+		<%= form_for :entry, url: entries_path do |f| %>
+			<p>
+				<%= f.label :todo %>
+				<%= f.text_field :todo %>
+				<%= f.date_field :target_date, :value => Time.now.strftime('%Y-%m-%d') %>
+				<%= f.submit %>
+			</p>
+		<% end %>
+
+		<%= link_to 'New Todo', new_entry_path %></p>
+
+		<h2>Today is <%= Date.today.strftime('%A, %B %d') %></h2>
+		<p>Here are your tasks:</p>
+
+		<%= render "allentries" %>
+
+
+	</div>
+
+</div>
+

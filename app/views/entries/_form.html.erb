@@ -1,0 +1,13 @@
+<%= form_for entry do |f| %>
+
+	<%= f.label :todo %>
+	<%= f.text_field :todo %>
+
+	<%= f.label :target_date %><br>
+	<%= f.date_field :target_date, :value => Time.now.strftime('%Y-%m-%d') %>
+
+	<%= f.label :completed %>
+	<%= f.check_box :completed %>
+
+<%= f.submit %>
+<% end %>

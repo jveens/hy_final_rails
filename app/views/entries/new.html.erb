@@ -1,0 +1,17 @@
+<h1>What would you like to do?</h1>
+
+<%= form_for :entry, url: entries_path do |f| %>
+	<p>
+		<%= f.label :todo %><br>
+		<%= f.text_field :todo %>
+	</p>
+	<p>
+		<%= f.label :target_date %><br>
+		<%= f.date_field :target_date, :value => Time.now.strftime('%Y-%m-%d') %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<%= link_to 'Back', entries_path %>
