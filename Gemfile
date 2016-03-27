@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bootstrap to make things pretty
 gem 'bootstrap-sass'
 
-
+gem 'devise'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
