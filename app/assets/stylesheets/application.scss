@@ -10,14 +10,111 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
  */
 
+ @import "font-awesome";
  @import 'bootstrap';
 
- .container {
- 	padding-top: 10px;
- }
+// COLORS
+$bg1: #FAE0D0;
+$bg2: #C6F1E8;
+$dkgray: #061524;
+$white: #fff;
+$black: #000;
 
- li.complete {
- 	text-decoration: line-through;
-	 	}
+// FONTS
+@font-face {
+    font-family: 'curve';
+    src: font-url('curve.eot');
+    src: font-url('curve.eot?#iefix') format('embedded-opentype'),
+         font-url('curve.ttf') format('truetype'),
+         font-url('curve.woff') format('woff'),
+         font-url('curve.svg#curve') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}   
+
+$sans: "acumin-pro-semi-condensed",sans-serif;
+// $serif: "kepler-std-subhead",serif;
+$serif: "freight-big-pro",sans-serif;
+
+// ---------------
+// DEBUG
+// ---------------
+
+// * {
+// 	outline: 1px solid rgba(0,0,0,0.5);
+// }
+
+// ---------------
+// BASICS
+// ---------------
+
+html {
+	height: 100vh;
+	width: 100vw;
+	font-size: 62.5%;
+}
+body {
+	height: 100%;
+	width: 100%;
+	background-color: $bg1;
+	font-family: $sans;
+}
+
+// NAVIGATION
+.navbar.navbar-default {
+	border-radius: 0;
+	background-color: $dkgray;
+	color: $white;
+	
+	width: 100%;
+}
+
+.container {
+	padding-top: 10px;
+}
+
+li.complete {
+	text-decoration: line-through;
+}
+
+
+// ---------------
+// TYPOGRAPHY
+// ---------------
+
+h1 {
+	font-size: 8vw;
+	font-family: $serif;
+}
+
+p {
+	font-size: 2rem;
+	font-family: $sans;
+}
+
+// ---------------
+// SIGN UPS
+// ---------------
+
+.display-section {
+	font-size: 3rem;
+	color: $black;
+	// background-color: lighten($dkgray, 0.9);
+	width: 100%;
+	padding-left: 360px;
+	height: 100%;
+}
+
+
+.navbar.sidebar-nav {
+	height: 100vh;
+	width: 100%;
+	max-width: 360px;
+	position: fixed;
+	left: 0;
+	background-color: $white;
+	color: $dkgray;
+}
