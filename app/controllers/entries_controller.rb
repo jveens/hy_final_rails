@@ -2,7 +2,8 @@ class EntriesController < ApplicationController
 
 	def index
 		# @entries = Entry.where( target_date: Date.today )
-		@entries = all
+		# @entries = Entry.all.where(current_user.id)
+		@entries = current_user.entries
 	end
 
 	def show
@@ -20,18 +21,20 @@ class EntriesController < ApplicationController
 	end
 
 	def create	
-		# @entry = Entry.new(entry_params)
-		@entry = current_user.entries.build(entry_params)
+		@entry = Entry.new(entry_params)
+		@entry.user_id = current_user.id
+		# @entry = current_user.entry.build(entry_params)
 		@entry.target_date = @entry.target_date || Date.today
 		
-		if @entry.todo != ''
+		if @entry.user_id == "" || @entry.user_id == 'null'
+			redirect_to login_path
+		elsif @entry.todo != ''
 			if @entry.save
 				redirect_to :action => 'index'
 			else 
 				render :new
 			end
 		end
-		# render action: "index"
 		
 	end
 
@@ -62,15 +65,15 @@ class EntriesController < ApplicationController
 	end
 
 	def update
-		# resource.update(entry_params)
-		# redirect_to :action => 'index'
+		resource.update(entry_params)
+		redirect_to :action => 'index'
 
-		@entry = Entry.find(params[:id])
-		# @entry.toggle! :completed
+		# @entry = Entry.find(params[:id])
+		# # @entry.toggle! :completed
 
-		@entries = all
+		# @entries = all
 
-		render action: "index"
+		# render action: "index"
 
 		# if @entry.update_attribute(:completed, true)
 		# 	redirect_to entries_path, :notice => "Your To-Do item was marked as done!"
@@ -78,6 +81,11 @@ class EntriesController < ApplicationController
 		# 	redirect_to entries_path, :notice => "Your To-Do item was unable to be marked as done!"
 		# end
 
+	end
+
+	def typekit_include_tag(apikey)
+	  javascript_include_tag("//use.typekit.com/#{apikey}.js") +
+	  javascript_tag("try{Typekit.load()}catch(e){}")
 	end
 
 	private 
@@ -91,7 +99,7 @@ class EntriesController < ApplicationController
 		end
 
 		def entry_params
-			params.require(:entry).permit(:todo, :completed, :target_date)
+			params.require(:entry).permit(:todo, :completed, :target_date, :user_id)
 		end
 
 end
