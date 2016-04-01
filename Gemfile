@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Author Gems
 # Bootstrap to make things pretty
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 
 gem 'devise'
 
