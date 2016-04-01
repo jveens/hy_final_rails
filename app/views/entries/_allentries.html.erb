@@ -5,7 +5,11 @@
 		<!--<%= entry.id %> -->
 		<!--<%= entry.completed %> -->
 		<!--<%= entry.target_date %> -->
-		<%= link_to 'Complete', toggle_completed_entry_path(entry), :method => :put %>
+		<% if entry.completed %>
+			<%= link_to 'Undo', toggle_completed_entry_path( entry ), :method => :put %>
+		<% else %>
+			<%= link_to 'Complete', toggle_completed_entry_path( entry ), :method => :put %>
+		<% end %>
 		<%= link_to 'Edit', edit_entry_path( entry ) %>
 		<%= link_to 'Delete', entry, method: :delete %>
 
