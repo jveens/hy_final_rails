@@ -2,18 +2,22 @@
 <html>
 <head>
   <title>FinalTake2</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag '//use.typekit.net/ozc1cgj.js', 'data-turbolinks-track' => true %>
+  <%= javascript_tag "try{Typekit.load({ async: true });}catch(e){}" %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
-<div class="container">
+	<% unless current_page?('/users/sign_in') || current_page?('/users/sign_up') %>
 
 	<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
+		<div class="container">
 			<ul class="nav navbar-nav navbar-right">
 				<% if user_signed_in?  %>
+					<li>You're logged in as <%= current_user.email %></li>
 					<li><a href="#">Edit Profile</a></li>
 					<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 				<% else %>
@@ -23,10 +27,12 @@
 		</div>
 	</nav>
 
-	<!-- Flash alerts for DEVISE authentication -->
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+	<% end %>
 
+
+
+<div class="container-fluid">
+	<!-- Flash messages are removed, remember to add to individual views -->
 	<%= yield %>
 
 </div>
