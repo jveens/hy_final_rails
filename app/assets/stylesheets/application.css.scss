@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require font-awesome
+ */
+
+ @import "font-awesome";
+ @import 'bootstrap';
+
+// COLORS
+// $bg1: #FAE0D0;
+// $bg2: #B0CDFD;
+$green: darken(#93FFF4, 10%);
+$blue: darken(#93B9E3, 10%);
+$purple: darken(#BBAFFA, 00%);
+$dkgray: #061524;
+$white: #fff;
+$black: #000;
+
+// FONTS
+@font-face {
+    font-family: 'curve';
+    src: font-url('curve.eot');
+    src: font-url('curve.eot?#iefix') format('embedded-opentype'),
+         font-url('curve.ttf') format('truetype'),
+         font-url('curve.woff') format('woff'),
+         font-url('curve.svg#curve') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}   
+
+$sans: "acumin-pro-semi-condensed",sans-serif;
+// $serif: "kepler-std-subhead",serif;
+$serif: "freight-big-pro",sans-serif;
+
+// ---------------
+// DEBUG
+// ---------------
+
+// * {
+// 	outline: 1px solid rgba(0,0,0,0.5);
+// }
+
+// ---------------
+// BASICS
+// ---------------
+
+html {
+	height: 100vh;
+	width: 100vw;
+	font-size: 62.5%;
+}
+body {
+	height: 100%;
+	width: 100%;
+	color: $white;
+	background-color: $blue;
+	font-family: $sans;
+}
+
+// // NAVIGATION
+// .navbar.navbar-default {
+// 	border-radius: 0;
+// 	background-color: $dkgray;
+// 	color: $white;
+// 	width: 100%;
+// }
+
+// .container {
+// 	padding-top: 10px;
+// }
+
+// li.complete {
+// 	text-decoration: line-through;
+// }
+
+
+// ---------------
+// TYPOGRAPHY
+// ---------------
+
+h1, h2, h3, h4, h5, h6{
+	font-family: $serif;
+}
+
+h1 {
+	font-size: 7vw;
+}
+
+h2 {
+	font-style: 5vw;
+}
+p {
+	font-size: 2rem;
+	font-family: $sans;
+}
+
+// ---------------
+// SIGN UPS
+// ---------------
+
+.display-section {
+	font-size: 3rem;
+	width: 50%;
+	height: 100%;
+}
+
+
+.navbar-sidenav {
+	// width: 100%;
+	height: 100vh;
+	background-color: $white;
+	// position: fixed;
+	right: 0;
+	color: $blue;
+}
