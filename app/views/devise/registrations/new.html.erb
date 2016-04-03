@@ -1,37 +1,71 @@
 <!-- /registrations/new -->
 
 	<div class="col-md-6 display-section">
-		<h1>A Better Way</h1>
-		<p>Some body copy to see what's up in here.</p>
+		<div class="row form-field">
+			<div class="col-md-12">
+			<h1>A Better Way</h1>
+			<p>Some body copy to see what's up in here.</p>
+			</div>
+		</div>
 		<hr>
 		<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 		  <%= devise_error_messages! %>
 
-		  <div class="field">
-			<%= f.label :email %><br />
-			<%= f.email_field :email, autofocus: true %>
+		  <div class="row form-field">
+		  	<div class="col-md-3 form_label">
+				<%= f.label :email %>
+			</div>
+			<div class="col-md-9">
+				<%= f.email_field :email, autofocus: true %>
+			</div>
 		  </div>
 
-		  <div class="field">
-			<%= f.label :password %>
-			<% if @minimum_password_length %>
-			<span class="soft">(<%= @minimum_password_length %> characters minimum)</span>
-			<% end %><br />
-			<%= f.password_field :password, autocomplete: "off" %>
+		  <hr>
+
+		  <div class="row form-field">
+		  	<div class="col-md-3 form_label">
+				<%= f.label :password %>
+			</div>
+
+			<div class="col-md-9">
+				<%= f.password_field :password, autocomplete: "off" %>
+			</div>
+
+			<div class="col-md-9 col-md-offset-3">
+				<% if @minimum_password_length %>
+				<span class="soft"><%= @minimum_password_length %> characters minimum</span>
+				<% end %>
+			</div>
 		  </div>
 
-		  <div class="field">
-			<%= f.label :password_confirmation %><br />
-			<%= f.password_field :password_confirmation, autocomplete: "off" %>
+		  <hr>
+
+		  <div class="row form-field">
+		  	<div class="col-md-3 form_label">
+				<%= f.label :password_confirmation %>
+			</div>
+			<div class="col-md-9">
+				<%= f.password_field :password_confirmation, autocomplete: "off" %>
+			</div>
 		  </div>
 
-		  <div class="actions">
-			<%= f.submit "Sign up" %>
-		  </div>
-		<% end %>
+		  <hr>
 
-		<%= render "devise/shared/links" %>
+			<div class="row form-field">
+				<div class="col-md-12">
+			  <div class="actions">
+				<%= f.submit "Sign up →" %>
+			  </div>
+			  </div>
+			<% end %>
 
+			<div class="row form-field">
+				<div class="col-md-12 shared_links text-left">
+					<p>Already signed up?</p>
+					<%= render "devise/shared/links" %>
+				</div>
+			</div>
+			</div>
 	</div>
 
 	<div class="col-md-6 navbar-sidenav">

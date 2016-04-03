@@ -1,36 +1,67 @@
 
-<div class="navbar sidebar-nav">
-  <i class="logo-icon fa fa-fa-check-square-o fa-3x"></i>
-  <h2>Welcome Back</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
+<div class="col-md-6 col-md-offset-3 display-section login_section">
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+	<div class="row form-field text-center">
+		<h1 class="smaller">A Better Way</h1>
+	</div>
+	<div class="row form-field text-center">
+		<h2 class="bigger">Welcome Back!</h2>
+	</div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end -%>
+	<hr>
 
-    <div class="actions">
-      <%= f.submit "Log in" %>
-    </div>
-  <% end %>
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <%= render "devise/shared/links" %>
-</div>
+		<div class="row form-field">
+			<div class="col-md-3 form-label">
+				<%= f.label :email %><br />
+			</div>
+			<div class="col-md-9">
+				<%= f.email_field :email, autofocus: true %>
+				<span class="focus-holder"></span>
+			</div>
+		</div>
 
-<div class="display-section">
-  <h1>A Better Way</h1>
-  <hr>
-  <p>Some body copy to see what's up in here.</p>
+		<hr>
+
+		<div class="row form-field">
+			<div class="col-md-3 form-label">
+				<%= f.label :password %><br />
+			</div>
+			<div class="col-md-9">
+				<%= f.password_field :password, autocomplete: "off" %>
+				<span class="focus-holder"></span>
+			</div>
+		</div>
+
+		<hr>
+
+
+		<% if devise_mapping.rememberable? -%>
+			<div class="row form-field remember text-center">
+				<div class="col-xs-12">
+				<%= f.check_box :remember_me %>
+				<%= f.label :remember_me %>
+			</div>
+			</div>
+		<% end -%>
+
+		<div class="row form-field login_submit">
+			<div class="col-md-12 text-center">
+				<div class="actions">
+					<%= f.submit "Log in" %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="row form-field">
+		<div class="col-md-12 shared_links text-center">
+			<p>Need an account?</p>
+			<%= render "devise/shared/links" %>
+		</div>
+	</div>
+	</div>
+
 </div>
