@@ -10,12 +10,16 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *
+ * Run LIVERELOAD with guard -P livereload
+ *
  *= require jquery-ui
  *= require font-awesome
  */
 
  @import "font-awesome";
  @import 'bootstrap';
+
 
 // COLORS
 // $bg1: #FAE0D0;
@@ -38,6 +42,8 @@ $black: #000;
     font-weight: normal;
     font-style: normal;
 }   
+
+
 
 $sans: "acumin-pro-semi-condensed",sans-serif;
 // $serif: "kepler-std-subhead",serif;
@@ -69,6 +75,21 @@ body {
 	font-family: $sans;
 }
 
+ul {
+	padding: 0;
+	li {
+		list-style: none;
+	}
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.no-padding {
+	padding: 0;
+}
+
 // // NAVIGATION
 // .navbar.navbar-default {
 // 	border-radius: 0;
@@ -89,6 +110,11 @@ body {
 // ---------------
 // TYPOGRAPHY
 // ---------------
+
+.container-section {
+	padding-left: 0;
+	padding-right: 0;
+}
 
 h1, h2, h3, h4, h5, h6{
 	font-family: $serif;
@@ -177,10 +203,7 @@ input[type=submit] {
 
 .display-section {
 	font-size: 3rem;
-	width: 50%;
 	height: 100vh;
-	padding-left: 0;
-	padding-right: 0;
 	background-color: $blue;
 	color: $white;
 
@@ -215,3 +238,8 @@ input[type=submit] {
 	right: 0;
 	color: $blue;
 }
+
+
+@import 'entries';
+
+

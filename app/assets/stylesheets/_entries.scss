@@ -1,0 +1,56 @@
+// Place all the styles related to the entries controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+li.complete {
+	.col-md-7 {
+		text-decoration: line-through;
+		color: grey;
+	}
+}
+
+// input {
+// 	outline: 1px solid black;
+// }
+
+.input-new {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 50%;
+
+	.userinfo {
+		position: absolute;
+		bottom: 0;
+		padding-bottom: 2rem;
+
+		li {
+			list-style: none;
+			font-size: 1.5rem;
+
+			.fa {
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+.todo-section {
+	background-color: white;
+	color: $purple;
+
+	.todo-list {
+		padding: 0;
+
+		li {
+			list-style: none;
+			font-size: 2rem;
+			position: relative;
+			padding-left: 10px;
+		}
+
+		hr {
+			color: $purple;
+		}
+	}
+}
