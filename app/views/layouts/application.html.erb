@@ -11,33 +11,32 @@
 </head>
 <body>
 
-	<% unless current_page?('/users/sign_in') || current_page?('/users/sign_up') %>
+	<!-- <% unless current_page?('/users/sign_in') || current_page?('/users/sign_up') %>
 
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
 			<ul class="nav navbar-nav navbar-right">
-				<% if user_signed_in?  %>
-					<li>You're logged in as <%= current_user.email %></li>
-					<li><a href="#">Edit Profile</a></li>
-					<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-				<% else %>
-					<li><a href="#">Sign In</a></li>
-				<% end %>
+				
 			</ul>
 		</div>
 	</nav>
 
-	<% end %>
+	<% end %> -->
 
 
 
 <div class="container-fluid">
 	<!-- Flash messages are removed, remember to add to individual views -->
-	<div class="row">
 		<%= yield %>
-	</div>
 
 </div>
 
 </body>
+
+<%= javascript_tag "$(function() {
+    $( '#entry_target_date' ).datepicker({
+    	dateFormat : 'dd/MM/yy',
+	    gotoCurrent : true
+    	});
+  	});" %>
 </html>
