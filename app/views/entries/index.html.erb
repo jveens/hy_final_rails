@@ -1,31 +1,63 @@
 
 <div class="row">
-
-	<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+	<div class="input-new">
+	<div class="col-md-12 display-section text-center fixed-sidebar">
 
 		<%= form_for :entry, url: entries_path do |f| %>
-			<div class="row">
-				<div class="row">
-					<div class="col-md-3 form-label">
-						<%= f.label :todo %>
+				<div class="row form_field">
+					<div class="col-md-12">
+						<h2>Add a New To-Do</h2>
 					</div>
-					<div class="col-md-9">
-						<%= f.text_field :todo %>
+				</div>
+
+				<hr>
+
+				<div class="row form-field">
+					<div class="col-md-12 text-center">
+						<%= f.text_field :todo, :placeholder => 'What do you need to do?', :class => 'text-center' %>
+					</div>
+					<div class="col-md-12">
+						<label for="target_date">
+							When do you need to do it?
+						</label>
+						<%= f.date_select(:target_date, :order => [:month, :day, :year]) %>
 					</div>
 				</div>
 
 
-				<%= f.date_field :target_date, :value => Time.now.strftime('%Y-%m-%d') %>
+				<!-- <%= f.date_field :target_date, :value => Time.now.strftime('%d-%m-%y'), :placeholder => Time.now.strftime('%d-%m-%y') %> -->
+				
 				<%= f.submit %>
-			</div class="row">
+
+				<div class="userinfo text-left">
+					<% if user_signed_in?  %>
+						<li>You're logged in as <%= current_user.email %> | <a href="#">Edit Profile</a></li>
+						<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+					<% else %>
+						<li><a href="#">Sign In</a></li>
+					<% end %>
+				</div>
+	</div>
+	</div>
 		<% end %>
 
-		<%= link_to 'New Todo', new_entry_path %></p>
+	<div class="todo-section">
+		<div class="col-md-6 col-md-offset-6 display-section todo-section">
 
-		<h2>Today is <%= Date.today.strftime('%A, %B %d') %></h2>
-		<p>Here are your tasks:</p>
+			<!-- <div class="row">
+				<div class="col-md-12">
+					<%= link_to 'New Todo', new_entry_path %></p>
+				</div>
+			</div> -->
 
-		<%= render "allentries" %>
+			<h2>Today is <%= Date.today.strftime('%A, %B %d') %></h2>
+
+			<hr>
+
+			<%= render "allentries" %>
+
+		</div>
+	</div>
 
 
 	</div>
