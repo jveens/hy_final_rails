@@ -1,18 +1,36 @@
-<ul>
+<ol class="todo-list">
 <% @entries.each do |entry| %>
 	<li class="<%= 'complete' if entry.completed %>">
-		<%= entry.todo %>
-		<!--<%= entry.id %> -->
-		<!--<%= entry.completed %> -->
-		<!--<%= entry.target_date %> -->
-		<% if entry.completed %>
-			<%= link_to 'Undo', toggle_completed_entry_path( entry ), :method => :put %>
-		<% else %>
-			<%= link_to 'Complete', toggle_completed_entry_path( entry ), :method => :put %>
-		<% end %>
-		<%= link_to 'Edit', edit_entry_path( entry ) %>
-		<%= link_to 'Delete', entry, method: :delete %>
+		
+		<div class="col-md-8 no-padding">
+			
+			<% if entry.completed %>
 
+				<%= link_to(toggle_completed_entry_path( entry ), html_options = { :method => :put }) do %>
+					<%= content_tag :span, "", :class => "fa fa-check-circle" %>
+					<%= entry.todo %>
+				<% end %>
+
+			<% else %>
+
+				<%= link_to(toggle_completed_entry_path( entry ), html_options = { :method => :put }) do %>
+					<%= content_tag :span, "", :class => "fa fa-circle-o", :method => :put %>
+					<%= entry.todo %>
+				<% end %>
+
+			<% end %>
+
+			
+
+		</div>
+
+		<div class="col-md-4">
+			
+			<%= link_to 'Edit', edit_entry_path( entry ) %>
+			| 
+			<%= link_to 'Delete', entry, method: :delete %>
+		</div>
 	</li>
+	<hr>
 <% end -%>
-</ul>
+</ol>
